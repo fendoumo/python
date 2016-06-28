@@ -9,28 +9,36 @@ def getHttp(url):
     http_hd = urllib.urlopen(url)
     return http_hd.read()
 
+
 while True:
+    log=''
+    log += time.strftime("%a %b %d %H:%M:%S %Y", time.localtime())
+    log += "\r\n"
     try:
-        http_txt = getHttp('http://abcabc.gq')
+        http_txt = getHttp("http://abcabc.gq")
     except IOError:
-        print 'get abcabc io error'
+        log += "get abcabc io error\r\n"
     else:
         pass
 
     try:
-        http_txt = getHttp('http://window.gq/')
+        http_txt = getHttp("http://window.gq/")
     except IOError:
-        print 'get window io error'
+        log += "get window io error\r\n"
     else:
         pass
 
     try:
-        http_txt = getHttp('http://mytool.gq/')
+        http_txt = getHttp("http://mytool.gq/")
     except IOError:
-        print 'get mytool io error'
+        log += "get mytool io error\r\n"
     else:
         pass
 
-    localtime = time.asctime( time.localtime(time.time()) )
-    print "time:", localtime
+    logfile = open("/var/vol/text.txt", 'a')
+    try:
+        #print log
+        logfile.write(log)
+    finally:
+        logfile.close()
     time.sleep(60)
