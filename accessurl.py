@@ -11,9 +11,11 @@ def getHttp(url):
 
 while True:
     http_txt = getHttp('http://abcabc.gq')
-    print http_txt
+    #print http_txt
     http_txt = getHttp('http://window.gq/')
-    print http_txt
+    #print http_txt
     http_txt = getHttp('http://mytool.gq/')
-    print http_txt
+    #print http_txt
+	localtime = time.asctime(time.localtime(time.time()))
+	print localtime
     time.sleep(60)
