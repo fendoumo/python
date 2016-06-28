@@ -10,12 +10,27 @@ def getHttp(url):
     return http_hd.read()
 
 while True:
-    http_txt = getHttp('http://abcabc.gq')
-    #print http_txt
-    http_txt = getHttp('http://window.gq/')
-    #print http_txt
-    http_txt = getHttp('http://mytool.gq/')
-    #print http_txt
-	localtime = time.asctime(time.localtime(time.time()))
-	print localtime
+    try:
+        http_txt = getHttp('http://abcabc.gq')
+    except IOError:
+        print 'get abcabc io error'
+    else:
+        pass
+
+    try:
+        http_txt = getHttp('http://window.gq/')
+    except IOError:
+        print 'get window io error'
+    else:
+        pass
+
+    try:
+        http_txt = getHttp('http://mytool.gq/')
+    except IOError:
+        print 'get mytool io error'
+    else:
+        pass
+
+    localtime = time.asctime( time.localtime(time.time()) )
+    print "time:", localtime
     time.sleep(60)
