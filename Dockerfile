@@ -1,4 +1,4 @@
-FROM ubuntu:v3
+FROM ubuntu
 RUN apt-get update
 RUN apt-get install -y python
 #RUN apt-get install -y vim
